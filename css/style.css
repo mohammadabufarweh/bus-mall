@@ -1,7 +1,21 @@
-body{
+.body{
     width: 960px;
    margin:auto;
+
 }
+header{
+    text-align: center;
+    background-color: burlywood;
+}
+header img{
+    text-align: center;
+    width: 100px;
+}
+header h2{
+    color: brown;
+    font-size: xx-large ;
+}
+
 img{
     width: 100%;
 }
@@ -12,4 +26,9 @@ img{
     height: 100%;
     padding: 20px;
     gap: 20px;
+}
+.list{
+    font-size: large;
+    color: rgb(47, 54, 150);
+    text-align: center;
 }
