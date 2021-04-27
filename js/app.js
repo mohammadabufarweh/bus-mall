@@ -32,6 +32,7 @@ let m = 0;
 let n = 0;
 let z = 0;
 let b = 0
+
 function Bus(name) {
   this.name = name.split('.')[0];
 
@@ -45,8 +46,8 @@ Bus.all = [];
 
 for (let i = 0; i < imgArray.length; i++) {
   new Bus(imgArray[i]);
-
 }
+
 function eventHandler(e) {
   e.preventDefault
   if ((e.target.id == 'leftImage' || e.target.id == 'rightImage' || e.target.id == 'midleImage') && clickCounter < 25) {
@@ -66,11 +67,12 @@ function eventHandler(e) {
     clickCounter++;
     renderContent();
   }
-  else {
-    console.log(Bus.all);
+  // else {
+  //   console.log(Bus.all);
 
 
-  }
+  // }
+  
 }
 
 function renderContent() {
@@ -108,9 +110,6 @@ function renderContent() {
       } while (midlePart === rightPart || midlePart === leftPart || leftPart === rightPart)
     }
   }
-  // for(let i=0 ;i < imgArray.length; i++){
-
-  // }
 
 
 
@@ -125,6 +124,9 @@ function eventButton(event) {
     viewResult.removeEventListener('click', eventButton);
   }
   renderChart();
+  getData();
+  saveData();
+ // renderContent();
 }
 
 
@@ -178,7 +180,18 @@ function renderChart() {
     }
   });
 }
-renderContent();
 
+function saveData() {
+  localStorage.setItem( 'Bus', JSON.stringify( Bus.all ) );
+
+}
+
+
+function getData() {
+ JSON.parse( localStorage.getItem( 'Bus' ) );
+ 
+}
+ 
+renderContent();
 imageSection.addEventListener('click', eventHandler);
 viewResult.addEventListener('click', eventButton);
